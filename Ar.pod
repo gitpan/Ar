@@ -1,0 +1,267 @@
+=head1 NAME
+
+Remedy::Ar - Interface to Remedy's Action Request (Version 1.2)
+
+=head1 DESCRIPTION
+
+=over 5
+
+=head2 Terminology
+
+Action Request uses terminology which may not be familiar to some
+people.  Action Request can be viewed as graphical interface to a RDB
+(although flat files can also be used at the backend).  A B<schema> is
+roughly equivalent to a table in other database terminology.  In the
+graphical interface only fields from one schema can be present
+(although it is possible to fill some fields from other schema.  An
+B<entry> is equivalent to a record.
+
+=head2 Data structures
+
+=item $control
+
+This is a private tag which is used to keep track of multiple
+connections.  The newcontrol() returns a new $control tag, which
+can then be used for all other operations.
+
+=item $schema
+
+The name of a schema to operate on.
+
+=item $server
+
+The name of a server to connect to.
+
+=item $entryId
+
+A unique string representing an individual entry.  Once you have an
+$entryId, you can use it with GetEntry to retrieve detailed
+information about the record.
+
+=item $fieldList
+
+A $fieldList is a reference to an associative array containing field
+name/contents pairs.  The field name used is the label displayed for
+the schema, using the default display tag.
+
+=head2 Entry Operations
+
+=item $entryId = CreateEntry($control, $schema, $fieldList)
+
+Adds a new entry to the specified schema. 
+
+(Not Yet Implemented)
+
+=item DeleteEntry($control, $schema, $entryId)
+
+Removes an entry from the specified schema.  This action requires
+administrator access.
+
+(Not Yet Implemented)
+
+=item $fieldList = GetEntry($control, $schema, $entryId)
+
+Returns all fields from the entry associated with $entryId in $schema.
+
+=item SetEntry
+
+(Not Yet Implemented)
+
+=item GetListEntry($control, $schema, $qualifier, $maxRetrieve)
+
+=item MergeEntry
+
+(Not Yet Implemented)
+
+=head2 Schema Operations
+
+=item CreateSchema
+
+(Not Yet Implemented)
+
+=item DeleteSchema
+
+(Not Yet Implemented)
+
+=item GetSchema(control, schema)
+
+=item SetSchema
+
+(Not Yet Implemented)
+
+=item GetListSchema(control, changedSince)
+
+=head2 Field Operations
+
+=item CreateField
+
+(Not Yet Implemented)
+
+=item DeleteField
+
+(Not Yet Implemented)
+
+=item GetField(control, schema, fieldId)
+
+=item SetField
+
+(Not Yet Implemented)
+
+=item GetListField(control, schema, changedSince)
+
+=head2 Menu Operations
+
+=item CreateCharMenu
+
+(Not Yet Implemented)
+
+=item DeleteCharMenu
+
+(Not Yet Implemented)
+
+=item ExpandCharMenu
+
+(Not Yet Implemented)
+
+=item GetCharMenu
+
+(Not Yet Implemented)
+
+=item SetCharMenu
+
+(Not Yet Implemented)
+
+=item GetListCharMenu
+
+(Not Yet Implemented)
+
+=head2 Filter Operations
+
+=item CreateFilter
+
+(Not Yet Implemented)
+
+=item DeleteFilter
+
+(Not Yet Implemented)
+
+=item GetFilter
+
+(Not Yet Implemented)
+
+=item SetFilter
+
+(Not Yet Implemented)
+
+=item GetListFilter
+
+(Not Yet Implemented)
+
+=head2 Active Link Operations
+
+=item CreateActiveLink
+
+(Not Yet Implemented)
+
+=item DeleteActiveLink
+
+(Not Yet Implemented)
+
+=item GetActiveLink
+
+(Not Yet Implemented)
+
+=item SetActiveLink
+
+(Not Yet Implemented)
+
+=item GetListActiveLink
+
+(Not Yet Implemented)
+
+=head2 AdminExt Operations
+
+=item CreateAdminExt
+
+(Not Yet Implemented)
+
+=item DeleteAdminExt
+
+(Not Yet Implemented)
+
+=item GetAdminExt
+
+(Not Yet Implemented)
+
+=item SetAdminExt
+
+(Not Yet Implemented)
+
+=item GetListAdminExt
+
+(Not Yet Implemented)
+
+=item ExecuteAdminExt
+
+(Not Yet Implemented)
+
+=head2 Miscellaneous Operations
+
+=item VerifyUser(control)
+
+=item GetListServer()
+
+=item Export
+
+(Not Yet Implemented)
+
+=item Import
+
+(Not Yet Implemented)
+
+=item GetListGroup(control)
+
+=item GetServerInfo
+
+(Not Yet Implemented)
+
+=item SetServerInfo
+
+(Not Yet Implemented)
+
+=item DecodeStatusHistory
+
+(Not Yet Implemented)
+
+=item DecodeDiary
+
+(Not Yet Implemented)
+
+=item LoadARQualifierStruct(control, schema, qualString)
+
+=head2 Miscellaneous Support Functions (Not part of the AR API)
+
+=item newcontrol()
+
+=item printcontrol(control)
+
+=item setuser(control, user, password)
+
+=item setlanguage(control, language)
+
+=item setserver(control, server)
+
+=back
+
+=head1 AUTHOR
+
+Copyright (c) 1995 Rik Harris (B<rik.harris@fulcrum.com.au>). All
+rights reserved.  This program is free software; you can redistribute
+it and/or modify it under the same terms as Perl itself.
+
+The Ar perl extension, and this documentation were derived from the
+information found in the Action Request include files, and the Action
+Request System Programmer's Guide (Remedy Part Number: AXA-120-DA4-01).
+
+Action Request System and AR System are tracemarks of Remedy
+Corporation.

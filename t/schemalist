@@ -1,0 +1,26 @@
+#!/usr/local/bin/perl5 -I./blib -I../blib -w
+
+require Remedy::Ar;
+
+$usage = "usage: serverlist [server ...] user password\n";
+
+$pwd = pop(@ARGV);
+$user = pop(@ARGV);
+
+die $usage if ! defined($user) || ! defined($pwd);
+
+@servers = (@ARGV) || Remedy::Ar::GetListServer();
+
+foreach $server (@servers)
+{
+  print "Server: $server\n";
+  $s = Remedy::Ar::Server->new($server);
+  $s->setuser($user, $pwd);
+
+  @schemas = $s->ListSchema();
+
+  foreach (@schemas)
+  {
+    print "  $_\n";
+  }
+}

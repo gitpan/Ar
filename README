@@ -1,0 +1,75 @@
+Introduction
+------------
+
+This module provides two intefaces to the Remedy Action Request System.
+The first is a basic interface to the C API provided with the AR
+system (Remedy::Ar).  The second is an object-oriented version of the
+same (Remedy::Ar::Server and Remedy::Ar::Schema).  
+
+Prerequisites
+-------------
+
+You need the Action Request System from Remedy
+Corporation.  It provides all libraries and include files necessary to
+use this software.
+
+Bulding and Installing
+----------------------
+
+Extract the archive.  It extracts into its own directory.l
+$ cd Ar-0.2alpha
+$ perl Makefile.PL
+$ make
+if you're happy with it, type:
+$ make install
+
+See the TODO file for the remaining work to be done.
+
+Warning
+-------
+
+WARNING:  This is a snapshot of a work-in-progress.  It does what I
+want it to do, but it may not work for you.  Bug fixes, features, and
+bug reports will be gratefully accepted.  Please send to
+rik.harris@fulcrum.com.au, or to perl-remedy@lists.fulcrum.com.au.
+
+Mailing list
+------------
+
+There is a mailing list for announcements and discussion.  To
+subscribe, send a message to 'majordomo@lists.fulcrum.com.au', with a
+body of 'subscribe perl-remedy'.
+
+Legal Stuff
+-----------
+
+     Copyright (c) 1995 Rik Harris. All rights reserved.
+     This program is free software; you can redistribute it and/or
+     modify it under the same terms as Perl itself.
+
+     Because you are being permitted to use this software free of charge,
+     neither the copyright owner nor any other party supplying the software
+     to you gives any warranty as to its merchantability or its fitness for
+     any particular purpose (except to the extent required by law). The
+     copyright owner and/or the other party providing this software do so on
+     an "as is" basis. By using this software, you agree that you will bear
+     the entire risk as to its quality, performance and fitness for any
+     particular purpose. Should the software prove defective or unfit for
+     any particular purpose, you agree to bear any consequential loss. In no
+     event (except to the extent required by law) will the copyright owner,
+     or any other party who may distribute the software, be liable to you or
+     to any other person for damages, including any general, special,
+     incidental or consequential damages arising out of the use, or the
+     inability to use the software (including but not limited to any loss of
+     data, any data being rendered inaccurate, the software failing to
+     operate, either alone or with any other programs, or the software
+     causing any computer or computer hardware to fail), even if the
+     copyright owner or other party has been advised of the possibility of
+     such loss or damage.
+
+     Action Request System and AR System are trademarks of Remedy Corporation
+
+Request
+-------
+
+Have fun.

@@ -1,0 +1,41 @@
+#!/usr/local/bin/perl5 -I./blib -I../blib -w
+
+require Remedy::Ar;
+
+$ph = Remedy::Ar::Server->new("phoenix");
+$ph->setuser("fulcrum", "");
+
+$rt = $ph->GetSchema("RIK-Task");
+
+print "Field Id List:\n";
+foreach $field ($rt->ListField)
+{
+  print " $field\n";
+}
+
+print "searching...\n";
+foreach $record ($rt->Search("dfadsaf"))
+{
+  print " $record->[1]\n";
+  %fields = %{$rt->GetEntry($record->[0])};
+  foreach $key (keys %fields)
+  {
+    print "  $key $fields{$key}\n";
+  }
+}
+
+print "searching...\n";
+foreach $record ($rt->Search(""))
+{
+  $record->[1] =~ s/[\s\n]*$//;
+  print " $record->[1]\n";
+  %fields = %{$rt->GetEntry($record->[0])};
+  foreach $key (keys %fields)
+  {
+    print "  $key \"$fields{$key}\"\n" if $fields{$key};
+  }
+}
+
+$rt->CreateEntry("fas", "dasf", "afds");
+
+$rt->DeleteEntry("");

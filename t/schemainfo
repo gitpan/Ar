@@ -1,0 +1,26 @@
+#!/usr/local/bin/perl5 -I./blib -I../blib -w
+
+require Remedy::Ar;
+
+$usage = "usage: serverinfo schema server user password\n";
+
+$pwd = pop(@ARGV);
+$user = pop(@ARGV);
+$server = pop(@ARGV);
+$schema = pop(@ARGV);
+
+die $usage if
+  ! defined($user) ||
+  ! defined($pwd) ||
+  ! defined($server) ||
+  ! defined($schema);
+
+$srv = Remedy::Ar::Server->new($server);
+$srv->setuser($user, $pwd);
+
+$sch = $srv->GetSchema($schema);
+
+foreach $field ($sch->ListField)
+{
+  print "  $field ", $sch->GetFieldName($field), "\n";
+};
